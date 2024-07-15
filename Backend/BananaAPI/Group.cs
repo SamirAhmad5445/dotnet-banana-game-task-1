@@ -7,15 +7,19 @@
     private readonly int MAX_COUNT = 3;
     public int Count = 0;
 
+    public bool IsFull()
+    {
+      return Members.Count == MAX_COUNT;
+    }
+
     public bool AddMember(string newMenber)
     {
-      if (Members.Count == MAX_COUNT)
+      if (IsFull())
       {
         return false;
       }
 
       Members.Add(newMenber);
-      
       return true;
     }
 
