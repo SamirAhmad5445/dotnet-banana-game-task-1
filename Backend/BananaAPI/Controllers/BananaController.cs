@@ -35,7 +35,7 @@ namespace BananaAPI.Controllers
     [HttpGet("group/{GroupId}")]
     public ActionResult<int> GetCount(int GroupId)
     {
-      if (GroupId <= 0 && GroupId > Groups.Count)
+      if (GroupId <= 0 || GroupId > Groups.Count)
       {
         return BadRequest("Invalid group ID.");
       }
@@ -47,7 +47,7 @@ namespace BananaAPI.Controllers
     [HttpPut("group")]
     public ActionResult<int> UpdateCount([FromBody]int GroupId)
     {
-      if (GroupId <= 0 && GroupId > Groups.Count)
+      if (GroupId <= 0 || GroupId > Groups.Count)
       {
         return BadRequest("Invalid group ID.");
       }
